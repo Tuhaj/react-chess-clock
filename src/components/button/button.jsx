@@ -18,16 +18,16 @@ const StyledStartButton = DefaultSVGButton.extend`
   content: ${SVG.startIcon};
 `;
 
-const SVGButton = ({ action, type}) => {
+const SVGButton = ({ action, type }) => {
   let StyledSVGButton;
-  if(type === 'start') {
+  if (type === 'start') {
     StyledSVGButton = StyledStartButton;
   }
 
   return (
     <StyledSVGButton onClick={action} />
-  )
-}
+  );
+};
 
 SVGButton.defaultProps = {
   type: 'start',
@@ -35,7 +35,7 @@ SVGButton.defaultProps = {
 
 SVGButton.propTypes = {
   action: PropTypes.func.isRequired,
-  remove: PropTypes.string,
+  type: PropTypes.string,
 };
 
 export default SVGButton;
