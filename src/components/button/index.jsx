@@ -12,6 +12,7 @@ const DefaultSVGButton = styled.div`
   width: 1em;
   height: 1em;
   box-sizing: border-box;
+  cursor: pointer;
 `;
 
 const StyledStartButton = DefaultSVGButton.extend`

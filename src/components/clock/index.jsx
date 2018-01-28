@@ -12,11 +12,7 @@ const StyledClock = styled.div`
   border: 1px solid black;
 `;
 
-const Clock = ({ time }) => {
-  return (
-    <StyledClock>{time}</StyledClock>
-  );
-};
+const Clock = ({ time }) => (<StyledClock>{time}</StyledClock>);
 
 Clock.defaultProps = {
   time: 6000,
