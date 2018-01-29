@@ -48,6 +48,7 @@ const mapStateToProps = state => ({
 
 App.propTypes = {
   startClock: PropTypes.func.isRequired,
+  stopClock: PropTypes.func.isRequired,
   player1Time: PropTypes.number.isRequired,
   player2Time: PropTypes.number.isRequired,
 };

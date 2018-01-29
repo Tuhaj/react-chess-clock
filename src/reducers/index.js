@@ -15,7 +15,7 @@ const clockReducer = (state = defaultState, action) => {
     }
     case 'STOP_CLOCK': {
       const clockState = Object.assign({}, state);
-      console.log("stops clock");
+      console.log('stops clock');
       clockState.running = false;
       return clockState;
     }
