@@ -1,32 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import StartIcon from '../svg/startIcon';
 
-const SVG = {
-  startIcon: 'url(/svg/start-icon.svg)',
-};
-
-const DefaultSVGButton = styled.div`
+const StyledSVGButton = styled.div`
   position: relative;
   display: inline-block;
-  width: 1em;
-  height: 1em;
+  width: 2em;
+  height: 2em;
   box-sizing: border-box;
   cursor: pointer;
 `;
 
-const StyledStartButton = DefaultSVGButton.extend`
-  content: ${SVG.startIcon};
-`;
-
 const SVGButton = ({ action, type }) => {
-  let StyledSVGButton;
+  let Icon;
   if (type === 'start') {
-    StyledSVGButton = StyledStartButton;
+    Icon = StartIcon;
   }
 
   return (
-    <StyledSVGButton onClick={action} />
+    <StyledSVGButton onClick={action}>
+      <Icon />
+    </StyledSVGButton>
   );
 };
 
