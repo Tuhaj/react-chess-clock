@@ -13,13 +13,13 @@ const StyledSVGButton = styled.div`
   cursor: pointer;
 `;
 
+const SVG = {
+  'start': Start,
+  'stop': Stop,
+}
+
 const SVGButton = ({ action, type }) => {
-  let Icon;
-  if (type === 'start') {
-    Icon = Start;
-  } else if (type === 'stop') {
-    Icon = Stop;
-  }
+  const Icon = SVG[type];
 
   return (
     <StyledSVGButton onClick={action}>
@@ -34,7 +34,7 @@ SVGButton.defaultProps = {
 
 SVGButton.propTypes = {
   action: PropTypes.func.isRequired,
-  type: PropTypes.string,
+  type: PropTypes.string.isRequired,
 };
 
 export default SVGButton;
