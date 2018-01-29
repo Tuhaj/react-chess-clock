@@ -23,6 +23,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.startClock = this.props.startClock.bind(this);
+    this.stopClock = this.props.stopClock.bind(this);
   }
 
   render() {
@@ -30,11 +31,11 @@ class App extends Component {
       <StyledChessClock>
         <main>
           <Clock time={this.props.player1Time} />
-          <SVGButton action={() => this.props.startClock()} />
+          <SVGButton action={() => this.startClock()} />
           <Clock time={this.props.player2Time} />
         </main>
         <footer>
-          <SVGButton action={() => this.props.stopClock()} type="stop" />
+          <SVGButton action={() => this.stopClock()} type="stop" />
         </footer>
       </StyledChessClock>
     );
