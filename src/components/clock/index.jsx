@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { stopClock } from '../../actions';
 
 const StyledClock = styled.div`
   position: relative;
@@ -13,7 +15,21 @@ const StyledClock = styled.div`
   border: 1px solid black;
 `;
 
-const Clock = ({ time }) => (<StyledClock>{time}</StyledClock>);
+class Clock extends Component {
+  shouldComponentUpdate(nextProps) {
+    return nextProps.time >= 0;
+  }
+
+  componentWillUpdate(nextProps) {
+    if (nextProps.time <= 0) {
+      this.props.stopClockAction();
+    }
+  }
+
+  render() {
+    return <StyledClock>{this.props.time}</StyledClock>;
+  }
+}
 
 Clock.defaultProps = {
   time: 6000,
@@ -21,6 +37,11 @@ Clock.defaultProps = {
 
 Clock.propTypes = {
   time: PropTypes.number,
+  stopClockAction: PropTypes.func.isRequired,
 };
 
-export default Clock;
+const mapDispatchToProps = dispatch => ({
+  stopClockAction: () => dispatch(stopClock()),
+});
+
+export default connect(null, mapDispatchToProps)(Clock);
