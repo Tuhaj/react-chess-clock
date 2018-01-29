@@ -1,3 +1,5 @@
+import { SWITCH_CLOCK,  STOP_CLOCK } from '../actions/action_types.js';
+
 const defaultState = {
   running: false,
   currentClock: '',
