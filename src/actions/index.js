@@ -3,3 +3,9 @@ export function startClock() {
     type: 'SWITCH_CLOCK',
   };
 }
+
+export function stopClock() {
+  return {
+    type: 'STOP_CLOCK',
+  };
+}

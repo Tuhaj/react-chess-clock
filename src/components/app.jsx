@@ -12,6 +12,7 @@ const StyledChessClock = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   padding: 2em;
   margin: 2em;
   text-align: center;
@@ -27,9 +28,14 @@ class App extends Component {
   render() {
     return (
       <StyledChessClock>
-        <Clock time={this.props.player1Time} />
-        <SVGButton action={() => this.props.startClock()} />
-        <Clock time={this.props.player2Time} />
+        <main>
+          <Clock time={this.props.player1Time} />
+          <SVGButton action={() => this.props.startClock()} />
+          <Clock time={this.props.player2Time} />
+        </main>
+        <footer>
+          <SVGButton action={() => this.props.stopClock()} type="stop" />
+        </footer>
       </StyledChessClock>
     );
   }

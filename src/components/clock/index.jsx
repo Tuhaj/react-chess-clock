@@ -6,7 +6,8 @@ const StyledClock = styled.div`
   position: relative;
   display: inline-block;
   width: 4em;
-  margin: 1em;
+  margin: .5em;
+  font-size: 36px;
   text-align: center;
   box-sizing: border-box;
   border: 1px solid black;

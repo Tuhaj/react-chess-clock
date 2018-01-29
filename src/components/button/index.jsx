@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import StartIcon from '../svg/startIcon';
+import Start from '../svg/start';
+import Stop from '../svg/stop';
 
 const StyledSVGButton = styled.div`
   position: relative;
   display: inline-block;
   width: 2em;
-  height: 2em;
+  margin: .5em;
   box-sizing: border-box;
   cursor: pointer;
 `;
@@ -15,7 +16,9 @@ const StyledSVGButton = styled.div`
 const SVGButton = ({ action, type }) => {
   let Icon;
   if (type === 'start') {
-    Icon = StartIcon;
+    Icon = Start;
+  } else if (type === 'stop') {
+    Icon = Stop;
   }
 
   return (
