@@ -29,8 +29,11 @@ export const timeOver = () => {
   };
 };
 
-export const setTime = time => ({
-  type: SET_TIME,
-  time,
-});
+export const setTime = time => {
+  clearInterval(timeInterval);
+  return {
+    type: SET_TIME,
+    time,
+  }
+};
 

@@ -29,7 +29,8 @@ const clockReducer = (state = defaultState, action) => {
     }
     case SET_TIME: {
       const clockState = Object.assign({}, state);
-
+      clockState.isTimeOver = false;
+      clockState.running = false;
       clockState.player1Time = action.time;
       clockState.player2Time = action.time;
       return clockState;
