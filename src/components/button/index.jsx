@@ -14,9 +14,9 @@ const StyledSVGButton = styled.div`
 `;
 
 const SVG = {
-  'start': Start,
-  'stop': Stop,
-}
+  start: Start,
+  stop: Stop,
+};
 
 const SVGButton = ({ action, type }) => {
   const Icon = SVG[type];
@@ -26,10 +26,6 @@ const SVGButton = ({ action, type }) => {
       <Icon />
     </StyledSVGButton>
   );
-};
-
-SVGButton.defaultProps = {
-  type: 'start',
 };
 
 SVGButton.propTypes = {

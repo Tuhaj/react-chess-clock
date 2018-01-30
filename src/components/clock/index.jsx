@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { stopClock } from '../../actions';
+import { timeOver } from '../../actions';
 
 const StyledClock = styled.div`
   position: relative;
@@ -22,7 +22,7 @@ class Clock extends Component {
 
   componentWillUpdate(nextProps) {
     if (nextProps.time <= 0) {
-      this.props.stopClockAction();
+      this.props.timeOverAction();
     }
   }
 
@@ -37,11 +37,11 @@ Clock.defaultProps = {
 
 Clock.propTypes = {
   time: PropTypes.number,
-  stopClockAction: PropTypes.func.isRequired,
+  timeOverAction: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({
-  stopClockAction: () => dispatch(stopClock()),
+  timeOverAction: () => dispatch(timeOver()),
 });
 
 export default connect(null, mapDispatchToProps)(Clock);

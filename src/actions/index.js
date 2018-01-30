@@ -1,4 +1,4 @@
-import { SWITCH_CLOCK, STOP_CLOCK, CLOCK_TICK } from './action_types';
+import { SWITCH_CLOCK, STOP_CLOCK, CLOCK_TICK, TIME_OVER } from './action_types';
 
 let timeInterval = null;
 
@@ -19,6 +19,13 @@ export const stopClock = () => {
   clearInterval(timeInterval);
   return {
     type: STOP_CLOCK,
+  };
+};
+
+export const timeOver = () => {
+  clearInterval(timeInterval);
+  return {
+    type: TIME_OVER,
   };
 };
 

@@ -31,7 +31,7 @@ class App extends Component {
       <StyledChessClock>
         <main>
           <Clock time={this.props.player1Time} />
-          <SVGButton action={() => this.startClock()} />
+          <SVGButton action={() => this.startClock()} type="start"/>
           <Clock time={this.props.player2Time} />
         </main>
         <footer>

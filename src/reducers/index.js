@@ -1,7 +1,8 @@
-import { SWITCH_CLOCK, STOP_CLOCK, CLOCK_TICK } from '../actions/action_types';
+import { SWITCH_CLOCK, STOP_CLOCK, CLOCK_TICK, TIME_OVER } from '../actions/action_types';
 
 const defaultState = {
   running: false,
+  timeOver: false,
   currentClock: '',
   player1Time: 6000,
   player2Time: 6000,
@@ -20,10 +21,18 @@ const clockReducer = (state = defaultState, action) => {
       clockState.running = false;
       return clockState;
     }
+    case TIME_OVER: {
+      const clockState = Object.assign({}, state);
+      clockState.running = false;
+      clockState.timeOver = true;
+      return clockState;
+    }
     case CLOCK_TICK: {
       const clockState = Object.assign({}, state);
-      const playerTime = clockState[clockState.currentClock];
-      clockState[clockState.currentClock] = playerTime - 10;
+      if (clockState.timeOver === false) {
+        const playerTime = clockState[clockState.currentClock];
+        clockState[clockState.currentClock] = playerTime - 10;
+      }
       return clockState;
     }
     default:
