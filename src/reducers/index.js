@@ -4,15 +4,15 @@ const defaultState = {
   running: false,
   isTimeOver: false,
   currentClock: '',
-  player1Time: 600,
-  player2Time: 600,
+  player1Time: 60000,
+  player2Time: 60000,
 };
 
 const clockReducer = (state = defaultState, action) => {
   switch (action.type) {
     case SWITCH_CLOCK: {
       const clockState = Object.assign({}, state);
-      clockState.currentClock = state.currentClock !== 'player1Time' ? 'player1Time' : 'player2Time';
+      clockState.currentClock = state.currentClock !== 'player1Time' && state.running ? 'player1Time' : 'player2Time';
       clockState.running = true;
       return clockState;
     }
