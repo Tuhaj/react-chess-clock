@@ -20,7 +20,8 @@ const StyledChessClock = styled.div`
 `;
 
 const StyledEndOfTime = styled.p`
-  color: ${props => (props.isTimeOver ? 'red' : 'white')};
+  visibility: ${props => (props.isTimeOver ? 'initial' : 'hidden')};
+  color: red;
 `;
 
 class App extends Component {

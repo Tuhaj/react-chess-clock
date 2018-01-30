@@ -8,5 +8,5 @@ describe('App', () => {
     component = renderComponent(App);
   });
 
-  it('renders something', () => expect(component).to.exist);
+  it('renders the whole clock', () => expect(component).to.exist);
 });
