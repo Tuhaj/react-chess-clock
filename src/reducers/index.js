@@ -4,8 +4,8 @@ const defaultState = {
   running: false,
   isTimeOver: false,
   currentClock: '',
-  player1Time: 6000,
-  player2Time: 6000,
+  player1Time: 180000,
+  player2Time: 180000,
 };
 
 const clockReducer = (state = defaultState, action) => {
