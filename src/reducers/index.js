@@ -1,4 +1,4 @@
-import { SWITCH_CLOCK, STOP_CLOCK, CLOCK_TICK, TIME_OVER } from '../actions/action_types';
+import { SWITCH_CLOCK, STOP_CLOCK, CLOCK_TICK, TIME_OVER, SET_TIME } from '../actions/action_types';
 
 const defaultState = {
   running: false,
@@ -25,6 +25,13 @@ const clockReducer = (state = defaultState, action) => {
       const clockState = Object.assign({}, state);
       clockState.running = false;
       clockState.isTimeOver = true;
+      return clockState;
+    }
+    case SET_TIME: {
+      const clockState = Object.assign({}, state);
+
+      clockState.player1Time = action.time;
+      clockState.player2Time = action.time;
       return clockState;
     }
     case CLOCK_TICK: {

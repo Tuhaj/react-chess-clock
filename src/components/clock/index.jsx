@@ -15,11 +15,11 @@ const StyledClock = styled.div`
   border: 1px solid black;
 `;
 
-export const parseTime = (timeInCs) => { // timeInCs means hundredth of a second - one clock tick
-  const tenthSecond = parseInt((timeInCs / 100) % 6, 10);
-  let seconds = parseInt((timeInCs / 1000) % 60, 10);
-  let minutes = parseInt((timeInCs / (1000 * 60)), 10 % 60);
-  let hours = parseInt((timeInCs / (1000 * 60 * 60)), 10 % 24);
+export const parseTime = (miliseconds) => {
+  const tenthSecond = parseInt((miliseconds / 100) % 6, 10);
+  let seconds = parseInt((miliseconds / 1000) % 60, 10);
+  let minutes = parseInt((miliseconds / (1000 * 60)), 10 % 60);
+  let hours = parseInt((miliseconds / (1000 * 60 * 60)), 10 % 24);
 
   hours = (hours < 10) ? `0${hours}` : hours;
   minutes = (minutes < 10) ? `0${minutes}` : minutes;

@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
-import SVGButton from './button';
+import SVGButton from './SVGButton';
 import Clock from './clock';
+import Header from './header';
 import * as clockActions from '../actions';
 
 const StyledChessClock = styled.div`
@@ -34,6 +35,7 @@ class App extends Component {
   render() {
     return (
       <StyledChessClock>
+        <Header />
         <main>
           <Clock time={this.props.player1Time} />
           <SVGButton action={() => this.startClock()} type="start" />
