@@ -7,13 +7,27 @@ import { timeOver } from '../../actions';
 const StyledClock = styled.div`
   position: relative;
   display: inline-block;
-  width: 4em;
+  width: 5em;
   margin: .5em;
   font-size: 36px;
   text-align: center;
   box-sizing: border-box;
   border: 1px solid black;
 `;
+
+export const parseTime = (timeInCs) => { // timeInCs means hundredth of a second - one clock tick
+  const tenthSecond = parseInt((timeInCs / 100) % 6, 10);
+  let seconds = parseInt((timeInCs / 1000) % 60, 10);
+  let minutes = parseInt((timeInCs / (1000 * 60)), 10 % 60);
+  let hours = parseInt((timeInCs / (1000 * 60 * 60)), 10 % 24);
+
+  hours = (hours < 10) ? `0${hours}` : hours;
+  minutes = (minutes < 10) ? `0${minutes}` : minutes;
+  seconds = (seconds < 10) ? `0${seconds}` : seconds;
+
+  return `${hours}:${minutes}:${seconds}:${tenthSecond}`;
+};
+
 
 class Clock extends Component {
   shouldComponentUpdate(nextProps) {
@@ -27,7 +41,8 @@ class Clock extends Component {
   }
 
   render() {
-    return <StyledClock>{this.props.time}</StyledClock>;
+    const time = parseTime(this.props.time);
+    return <StyledClock>{time}</StyledClock>;
   }
 }
 
