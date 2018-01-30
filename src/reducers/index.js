@@ -2,10 +2,10 @@ import { SWITCH_CLOCK, STOP_CLOCK, CLOCK_TICK, TIME_OVER } from '../actions/acti
 
 const defaultState = {
   running: false,
-  timeOver: false,
+  isTimeOver: false,
   currentClock: '',
-  player1Time: 6000,
-  player2Time: 6000,
+  player1Time: 600,
+  player2Time: 600,
 };
 
 const clockReducer = (state = defaultState, action) => {
@@ -24,12 +24,12 @@ const clockReducer = (state = defaultState, action) => {
     case TIME_OVER: {
       const clockState = Object.assign({}, state);
       clockState.running = false;
-      clockState.timeOver = true;
+      clockState.isTimeOver = true;
       return clockState;
     }
     case CLOCK_TICK: {
       const clockState = Object.assign({}, state);
-      if (clockState.timeOver === false) {
+      if (clockState.isTimeOver === false) {
         const playerTime = clockState[clockState.currentClock];
         clockState[clockState.currentClock] = playerTime - 10;
       }

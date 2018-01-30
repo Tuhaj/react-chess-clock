@@ -19,6 +19,10 @@ const StyledChessClock = styled.div`
   border: 1px solid black;
 `;
 
+const StyledEndOfTime = styled.p`
+  color: ${props => (props.isTimeOver ? 'red' : 'white')};
+`;
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -36,6 +40,8 @@ class App extends Component {
         </main>
         <footer>
           <SVGButton action={() => this.stopClock()} type="stop" />
+          <p>{this.props.isTimeOver}</p>
+          <StyledEndOfTime isTimeOver={this.props.isTimeOver} >Time Over!</StyledEndOfTime>
         </footer>
       </StyledChessClock>
     );
@@ -45,6 +51,7 @@ class App extends Component {
 const mapStateToProps = state => ({
   player1Time: state.player1Time,
   player2Time: state.player2Time,
+  isTimeOver: state.isTimeOver,
 });
 
 App.propTypes = {
@@ -52,6 +59,7 @@ App.propTypes = {
   stopClock: PropTypes.func.isRequired,
   player1Time: PropTypes.number.isRequired,
   player2Time: PropTypes.number.isRequired,
+  isTimeOver: PropTypes.bool.isRequired,
 };
 
 const mapDispatchToProps = dispatch => bindActionCreators(clockActions, dispatch);
