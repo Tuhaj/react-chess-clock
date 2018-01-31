@@ -12,7 +12,7 @@ const clockReducer = (state = defaultState, action) => {
   switch (action.type) {
     case SWITCH_CLOCK: {
       const clockState = Object.assign({}, state);
-      clockState.currentClock = state.currentClock !== 'player1Time' && state.running ? 'player1Time' : 'player2Time';
+      clockState.currentClock = state.currentClock !== 'player1Time' ? 'player1Time' : 'player2Time';
       clockState.running = true;
       return clockState;
     }
