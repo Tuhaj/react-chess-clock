@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
-import SVGButton from './SVGButton';
-import Clock from './clock';
-import Header from './header';
-import * as clockActions from '../actions';
+import SVGButton from './components/SVGButton';
+import Clock from './components/clock';
+import Header from './components/header';
+import * as clockActions from './actions';
 
 const StyledChessClock = styled.div`
   position: relative;
@@ -68,4 +68,3 @@ App.propTypes = {
 const mapDispatchToProps = dispatch => bindActionCreators(clockActions, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
-
