@@ -24,6 +24,8 @@ const Header = ({ setTimeAction }) => (
       <li><Button action={() => setTimeAction(60000)} text="1min" /></li>
       <li><Button action={() => setTimeAction(180000)} text="3min" /></li>
       <li><Button action={() => setTimeAction(300000)} text="5min" /></li>
+      <li><Button action={() => setTimeAction(600000)} text="10min" /></li>
+      <li><Button action={() => setTimeAction(900000)} text="15min" /></li>
     </ul>
   </StyledHeader>
 );
