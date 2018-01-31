@@ -18,6 +18,9 @@ const clockReducer = (state = defaultState, action) => {
     }
     case STOP_CLOCK: {
       const clockState = Object.assign({}, state);
+      if(clockState.running) {
+        clockState.currentClock = state.currentClock !== 'player1Time' ? 'player1Time' : 'player2Time';
+      }
       clockState.running = false;
       return clockState;
     }
