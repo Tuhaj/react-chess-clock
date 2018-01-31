@@ -18,6 +18,9 @@ const StyledChessClock = styled.div`
   margin: 2em;
   text-align: center;
   border: 1px solid black;
+  &:focus {
+    outline: none;
+  }
 `;
 
 const StyledEndOfTime = styled.p`
@@ -30,11 +33,35 @@ class App extends Component {
     super(props);
     this.startClock = this.props.startClock.bind(this);
     this.stopClock = this.props.stopClock.bind(this);
+    this.handleKeyEvents = this.handleKeyEvents.bind(this);
+  }
+  componentDidMount() {
+    this.chessClock.focus();
+  }
+
+  handleKeyEvents(e) {
+    switch (e.keyCode) {
+      case 32: {
+        this.startClock();
+        break;
+      }
+      case 16: {
+        this.stopClock();
+        break;
+      }
+      default: {
+        e.preventDefault();
+      }
+    }
   }
 
   render() {
     return (
-      <StyledChessClock>
+      <StyledChessClock
+        onKeyDown={this.handleKeyEvents}
+        tabIndex="0"
+        innerRef={(clock) => { this.chessClock = clock; }}
+      >
         <Header />
         <main>
           <Clock time={this.props.player1Time} />
